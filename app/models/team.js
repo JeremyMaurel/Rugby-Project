@@ -1,21 +1,16 @@
-import { Sequelize, DataTypes } from "sequelize";
-const sequelize = new Sequelize(process.env.PG_URL);
+import { DataTypes } from "sequelize";
+import { sequelize } from "./sequelizeClient.js";
 
-const Team = sequelize.define(
-  "team",
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+const Team = sequelize.define("team", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false,
   },
-  { underscored: true, timestamps: true }
-);
-
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 export default Team;
